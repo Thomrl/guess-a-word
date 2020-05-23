@@ -10,13 +10,17 @@ html, body {
     color: #ffa500;
 }
 
+#hmimg {width: 250px;}
+
 #showed-result {font-size: 4rem;}
 
 #button {color:White; width: 100px; height: 30px; border: 2px, solid, white; text-align: center;}
 
 #wrong-letters {color: red;}
 
-#grey-body {background-color: #333333;}
+#grey-body {background-color: #454545;}
+
+#toggle-hangman {color:black;}
 
 .unselectable {
     -webkit-touch-callout: none;
@@ -97,6 +101,7 @@ a h2:hover, h2 a:hover {
     font-weight: bold;
     margin-bottom: 5px;
     text-align: center;
+    font-size: large;
 }
 
 .inputs {

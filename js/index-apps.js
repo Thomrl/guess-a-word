@@ -4,7 +4,7 @@ aSResult = [];
 aShowedResult = [];
 var showedResult = "";
 var i;
-maxWrong = 5;
+maxWrong = 8;
 wrong = 0;
 checkTheWord = "";
 var foundLetters = [];
@@ -12,7 +12,7 @@ var userInput = " ";
 
 
 var init = function() {
-    var words = ["super", "water", "fire", "wind", "earth", "mars", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];
+    var words = ["space", "universe", "grass", "flower", "nut", "hero", "wheel", "zoom", "camera", "video", "chat", "super", "water", "fire", "wind", "earth", "mars", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];
     theWord = words[Math.floor(Math.random() * words.length)];
     for (i=0; i < theWord.length; i++) {
         aTheWord.push(theWord[i]);
@@ -49,6 +49,50 @@ function showResultAsLines() {
 console.log(showedResult);
 
 
+//Hangman drawings
+
+//default settings
+document.getElementById("hmimg").style.display = "none";
+
+
+//on load
+toggleHM = localStorage.getItem('toggleHM');
+
+if (toggleHM === "true") {
+    document.getElementById("hmimg").style.display = "block";
+} else if (toggleHM === "false") {
+    document.getElementById("hmimg").style.display = "none";
+} else {
+    localStorage.setItem("toggleHM", "false");
+    toggleHM = localStorage.getItem('toggleHM');
+
+}
+
+
+
+
+//toggle on click
+document.getElementById("toggle-hangman").addEventListener("click", function() {
+    if (toggleHM === "false") {
+        document.getElementById("hmimg").style.display = "block";
+        localStorage.setItem("toggleHM", "true");
+        toggleHM = localStorage.getItem('toggleHM');
+    } else if (toggleHM === "true") {
+        document.getElementById("hmimg").style.display = "none";
+        localStorage.setItem("toggleHM", "false");
+        toggleHM = localStorage.getItem('toggleHM');
+    } else {
+        localStorage.setItem("toggleHM", "true");
+
+    }
+
+
+})
+
+
+
+
+
 wrongLetters = [];
 
 
@@ -73,6 +117,8 @@ function check() {
         displayedWrongLetters = wrongLetters.join();
         displayedWrongLetters = displayedWrongLetters.replace(/,/g, " ");
         document.getElementById("wrong-letters").textContent = displayedWrongLetters;
+        //change image
+        document.getElementById("hmimg").src = "img/"+(wrong+1)+"-hangman.jpg";
 
         
     }
@@ -95,7 +141,17 @@ function check() {
     document.getElementById("userInput").text= "";
 };
 
+//////////////////////////
 
+//Planned
+
+//alternative to alerts
+
+//categories
+
+//other theme
+
+//////////////////////////
 
 
 //Enter

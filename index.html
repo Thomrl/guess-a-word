@@ -16,6 +16,7 @@
     <div>
         <center>
             <div id="game">
+                <img id="hmimg" src="img/1-hangman.jpg"/>
                 <div><p id="showed-result"></p></div>
                 <input id="userInput" class="uInput" type="text" maxlength="1" value=""></div>
                 <div id="button" class="btns">Check</div>
@@ -23,7 +24,8 @@
                 <br>
                 <p class="inline-this">Wrong Letters: </p><p class="inline-this" id="wrong-letters"></p>
                 <h3>Rules</h3>
-                <p>1) Write one letter and check if it's in the word.<br>2) Max 5 mistakes. <br>Guess the word.</p>
+                <p>1) Write one letter and check if it's in the word.<br>2) Max 8 mistakes. <br>Guess the word.</p>
+                <button id="toggle-hangman">Toggle hangman drawings</button>
             </div>
         </center>
         <script src="js/bootstrap.min.js"></script>
