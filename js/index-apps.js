@@ -12,7 +12,7 @@ var userInput = " ";
 
 
 var init = function() {
-    var words = ["space", "universe", "grass", "flower", "nut", "hero", "wheel", "zoom", "camera", "video", "chat", "super", "water", "fire", "wind", "earth", "mars", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];
+    var words = ["keyboard", "bell", "space", "universe", "grass", "flower", "nut", "hero", "wheel", "zoom", "camera", "video", "chat", "super", "water", "fire", "wind", "earth", "mars", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];
     theWord = words[Math.floor(Math.random() * words.length)];
     for (i=0; i < theWord.length; i++) {
         aTheWord.push(theWord[i]);
