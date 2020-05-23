@@ -19,6 +19,7 @@ aSResult = []
 maxWrong = 5;
 wrong = 0;
 checkTheWord = "";
+var nothing = "";
 
 
 for (i=0; i < theWord.length; i++) {
