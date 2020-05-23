@@ -14,6 +14,8 @@ html, body {
 
 #button {color:White; width: 100px; height: 30px; border: 2px, solid, white; text-align: center;}
 
+#wrong-letters {color: red;}
+
 #grey-body {background-color: #333333;}
 
 .unselectable {

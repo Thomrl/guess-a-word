@@ -1,7 +1,7 @@
 var theWord;
 aTheWord = [];
 aSResult = [];
-aShowedResult = ["p", "l", "a", "c", "h", "o", "l", "d", "e", "r"];
+aShowedResult = [];
 var showedResult = "";
 var i;
 maxWrong = 5;
@@ -12,23 +12,21 @@ var userInput = " ";
 
 
 var init = function() {
-    var words = ["super", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "cool", "monkey", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "english", "danish", "swedish", "drums", "drum", "guitar", "code", "christmas", "friend"];
-    //var words = ["wooman", "hooman", "swedesh", "idiot"];
+    var words = ["super", "water", "fire", "wind", "earth", "mars", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];
     theWord = words[Math.floor(Math.random() * words.length)];
     for (i=0; i < theWord.length; i++) {
         aTheWord.push(theWord[i]);
-        //console.log(aTheWord)
         aSResult.push(i);
     }
-    console.log(aTheWord)
+    //console.log(aTheWord)
     
     showResultAsLines();
     
     document.getElementById("showed-result").textContent = showedResult;
 }
 init();
-console.log(theWord)
-console.log(aTheWord)
+//console.log(theWord)
+//console.log(aTheWord)
 document.querySelector("#button").addEventListener('click', check);
 
 
@@ -51,6 +49,7 @@ function showResultAsLines() {
 console.log(showedResult);
 
 
+wrongLetters = [];
 
 
 function check() {
@@ -63,13 +62,18 @@ function check() {
             if (aTheWord[i].includes(userInput)) { //find that letter
                 aSResult.splice((i), 1, userInput);  //replace number with userinput
                 aShowedResult = aShowedResult.splice(i, 1, userInput);
-                
             }
         }
-        console.log(userInput);
     } else {
+        //Show how many mistakes made.
         wrong = wrong+1;
         document.getElementById("wrongind").textContent = wrong;
+        //Show the wrong letters.
+        wrongLetters.push(userInput, " ")
+        displayedWrongLetters = wrongLetters.join();
+        displayedWrongLetters = displayedWrongLetters.replace(/,/g, " ");
+        document.getElementById("wrong-letters").textContent = displayedWrongLetters;
+
         
     }
 
@@ -88,7 +92,7 @@ function check() {
     
     
     console.log("Clicked!")
-    document.getElementById("#userInput").text= " ";
+    document.getElementById("userInput").text= "";
 };
 
 
