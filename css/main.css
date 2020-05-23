@@ -10,28 +10,11 @@ html, body {
     color: #ffa500;
 }
 
-#button {color:White; padding: 5px; border: solid, 2px, white;}
+#showed-result {font-size: 4rem;}
 
-#name-preset, #save-preset, #delete-preset {
-    border-color: white;
-    background-color: #333333;
-}
-
-#name-preset:focus, #name-preset:hover {color:white}
+#button {color:White; width: 100px; height: 30px; border: 2px, solid, white; text-align: center;}
 
 #grey-body {background-color: #333333;}
-#R6S-body {background-image: url('https://ubistatic19-a.akamaihd.net/resource/en-us/game/rainbow6/siege-v3/r6-siege-v3-bg.jpg');    }
-
-
-#control-preset {margin-bottom: 20px; color:black;}
-#save-preset {color: rgb(0, 185, 56)}
-#delete-preset {color: red}
-
-#menu, #decider, .hide, #uInput, #deciderItem, .rngElement {display: none;}
-.presets {display: inline-block;}
-#activate-presets {display: none; float:right;}
-
-.presets .btns2 {border-color:white; border-style: block; margin-right: 10px; margin-bottom: 5px;}
 
 .unselectable {
     -webkit-touch-callout: none;
@@ -108,10 +91,10 @@ a h2:hover, h2 a:hover {
     background-color: #444444;
     border-color: #ffa500;
     color: white;
-    width: 100%;
     border-radius: 5px;
     font-weight: bold;
     margin-bottom: 5px;
+    text-align: center;
 }
 
 .inputs {
@@ -144,8 +127,10 @@ a h2:hover, h2 a:hover {
     color: Black;
     box-shadow: 0;
     border-radius: 5px;
-    width: 100%;
     font-size: 2rem;
+    text-align: center;
+    vertical-align: center;
+    width: 50%;
 }
 /*
 .btns2 {

@@ -6,7 +6,7 @@ var aNeededLetters = [];
 var showedResult = "";
 var i;
 maxWrong = 5;
-wrong = -1;
+wrong = 0;
 checkTheWord = "";
 var foundLetters = [];
 var userInput = " ";
@@ -125,7 +125,7 @@ function check() {
     }
     
     if (wrong === maxWrong) {
-        alert("Game Over!\nReload page!");
+        alert("Game Over!\nReload page the play again!");
     };
 
     checkThis = aSResult.join("");
