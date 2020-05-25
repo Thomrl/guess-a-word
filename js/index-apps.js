@@ -17,6 +17,7 @@ var init = function() {
     gamePlaying = true;
     wrongLetters = [];
     displayedWrongLetters = "";
+    document.getElementById("wrongind").textContent = wrong;
     document.getElementById("wrong-letters").textContent = displayedWrongLetters;
     document.getElementById("hmimg").src = "img/1-hangman.jpg";
     document.querySelector(".maps").style.display = "none";
@@ -114,8 +115,6 @@ document.getElementById("new-game").addEventListener("click", function() {
     newGame();
     
 });
-
-
 
 
 wrongLetters = [];
