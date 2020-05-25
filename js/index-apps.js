@@ -9,7 +9,7 @@ wrong = 0;
 checkTheWord = "";
 var foundLetters = [];
 var userInput = " ";
-var words = ["keyboard", "bell", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "super", "water", "fire", "wind", "earth", "mars", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
+var words = ["keyboard", "bell", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
 var wordsColors = ["blue", "red", "yellow", "pink", "black", "white", "green", "purple", "brown", "grey"];
 var gamePlaying = true;
 
@@ -124,53 +124,57 @@ function check() {
         var userInput = document.getElementById("userInput").value.toString();
         userInput = userInput.toLowerCase();
         
-        
-        if (theWord.includes(userInput) === true) { //If the userinput matches a letter
-            for (i=0; i < aTheWord.length; i++) {
-                if (aTheWord[i].includes(userInput)) { //find that letter
-                    aSResult.splice((i), 1, userInput);  //replace number with userinput
-                    aShowedResult = aShowedResult.splice(i, 1, userInput);
+
+
+        //This it so nothing will happen if nothing if nothing is sent.
+        if (userInput) {
+            
+            if (theWord.includes(userInput) === true) { //If the userinput matches a letter
+                for (i=0; i < aTheWord.length; i++) {
+                    if (aTheWord[i].includes(userInput)) { //find that letter
+                        aSResult.splice((i), 1, userInput);  //replace number with userinput
+                        aShowedResult = aShowedResult.splice(i, 1, userInput);
+                    }
                 }
+            } else {
+                //Show how many mistakes made.
+                wrong = wrong+1;
+                document.getElementById("wrongind").textContent = wrong;
+                //Show the wrong letters.
+                wrongLetters.push(userInput, " ")
+                displayedWrongLetters = wrongLetters.join();
+                displayedWrongLetters = displayedWrongLetters.replace(/,/g, " ");
+                document.getElementById("wrong-letters").textContent = displayedWrongLetters;
+                //change image
+                document.getElementById("hmimg").src = "img/"+(wrong+1)+"-hangman.jpg";
+                
+                
             }
-        } else {
-            //Show how many mistakes made.
-            wrong = wrong+1;
-            document.getElementById("wrongind").textContent = wrong;
-            //Show the wrong letters.
-            wrongLetters.push(userInput, " ")
-            displayedWrongLetters = wrongLetters.join();
-            displayedWrongLetters = displayedWrongLetters.replace(/,/g, " ");
-            document.getElementById("wrong-letters").textContent = displayedWrongLetters;
-            //change image
-            document.getElementById("hmimg").src = "img/"+(wrong+1)+"-hangman.jpg";
+            
+            showResultAsLines();
+            document.getElementById("showed-result").textContent = showedResult//showedResult;
+            
+            if (wrong === maxWrong) {
+                //alert("Game Over!\nReload page the play again!");
+                document.getElementById("win-lose-text").textContent = "Game Over!"
+                document.querySelector(".maps").style.display = "block";
+                gamePlaying = false;
+            };
+            
+            checkThis = aSResult.join("");
+            
+            if (checkThis === theWord) {
+                //alert("Congratiulations, you won!\nReload page to play again!");
+                document.getElementById("win-lose-text").textContent = "Congratiulations! You Won!"
+                document.querySelector(".maps").style.display = "block";
+                gamePlaying = false;
+            }
             
             
+            console.log("Clicked!")
+            document.getElementById("userInput").value = "";
+            
         }
-        
-        showResultAsLines();
-        document.getElementById("showed-result").textContent = showedResult//showedResult;
-        
-        if (wrong === maxWrong) {
-            //alert("Game Over!\nReload page the play again!");
-            document.getElementById("win-lose-text").textContent = "Game Over!"
-            document.querySelector(".maps").style.display = "block";
-            gamePlaying = false;
-        };
-        
-        checkThis = aSResult.join("");
-        
-        if (checkThis === theWord) {
-            //alert("Congratiulations, you won!\nReload page to play again!");
-            document.getElementById("win-lose-text").textContent = "Congratiulations! You Won!"
-            document.querySelector(".maps").style.display = "block";
-            gamePlaying = false;
-        }
-        
-        
-        console.log("Clicked!")
-        document.getElementById("userInput").text= "";
-        
-        
     }
     
 };
