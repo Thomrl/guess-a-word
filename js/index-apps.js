@@ -10,6 +10,7 @@ checkTheWord = "";
 var foundLetters = [];
 var userInput = " ";
 var words = ["keyboard", "bell", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "super", "water", "fire", "wind", "earth", "mars", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
+var wordsColors = ["blue", "red", "yellow", "pink", "black", "white", "green", "purple", "brown", "grey"];
 var gamePlaying = true;
 
 
@@ -89,8 +90,6 @@ document.getElementById("toggle-hangman").addEventListener("click", function() {
     } else {
         localStorage.setItem("toggleHM", "true");
     }
-    
-    
 })
 
 //Hangman section end..
@@ -181,6 +180,8 @@ function check() {
 //Planned
 
 //alternative to alerts //Done
+
+//Try other fonts
 
 //categories
 

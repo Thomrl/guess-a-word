@@ -1,2 +1,2 @@
 # guess-a-word
-Guess a word, not done yet
+Guess a word
