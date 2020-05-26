@@ -9,8 +9,9 @@ wrong = 0;
 checkTheWord = "";
 var foundLetters = [];
 var userInput = " ";
-var words = ["keyboard", "bell", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "facebook", "twitter", "instagram", "car", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "ape", "glue", "man", "woman", "boy", "girl", "baby", "adult", "kid", "child", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
+var words = ["keyboard", "bell", "bike", "plane", "shirt", "pants", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "videochat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "car", "telephone", "tank", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "tire", "play", "spy", "glue", "man", "woman", "human", "boy", "girl", "baby", "adult", "kid", "child", "stereo", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
 var wordsColors = ["blue", "red", "yellow", "pink", "black", "white", "green", "purple", "brown", "grey"];
+toggleHM = localStorage.getItem('toggleHM');
 var gamePlaying = true;
 
 
@@ -32,6 +33,17 @@ var init = function() {
     showResultAsLines();
     
     document.getElementById("showed-result").textContent = showedResult;
+    
+    //Check if hangman drawings are turned on or off.
+    if (toggleHM === "true") {
+        document.getElementById("hmimg").style.display = "block";
+    } else if (toggleHM === "false") {
+        document.getElementById("hmimg").style.display = "none";
+    } else {
+        localStorage.setItem("toggleHM", "false");
+        toggleHM = localStorage.getItem('toggleHM');
+    }
+    //hangman check on/off end.
 }
 init();
 //console.log(theWord)
@@ -154,6 +166,7 @@ function check() {
             showResultAsLines();
             document.getElementById("showed-result").textContent = showedResult//showedResult;
             
+            //Losing
             if (wrong === maxWrong) {
                 //alert("Game Over!\nReload page the play again!");
                 document.getElementById("win-lose-text").textContent = "Game Over!"
@@ -161,12 +174,14 @@ function check() {
                 gamePlaying = false;
             };
             
+            //Winning
             checkThis = aSResult.join("");
             
             if (checkThis === theWord) {
                 //alert("Congratiulations, you won!\nReload page to play again!");
                 document.getElementById("win-lose-text").textContent = "Congratiulations! You Won!"
                 document.querySelector(".maps").style.display = "block";
+                //document.getElementById("hmimg").style.display = "none";
                 gamePlaying = false;
             }
             
@@ -185,11 +200,13 @@ function check() {
 
 //alternative to alerts //Done
 
-//Try other fonts
+//Try other fonts //Changed the game font.
 
 //categories
 
-//other theme
+//other theme //Made a new them
+
+//Change theme?
 
 //////////////////////////
 
