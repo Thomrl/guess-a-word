@@ -29,6 +29,8 @@ html, body {
 
 #toggle-hangman {color:black;}
 
+#button-settings {color:black;}
+
 .unselectable {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -60,7 +62,7 @@ a h2:hover, h2 a:hover {
     margin: 10px auto 0 auto;
     vertical-align: baseline;
 }
-
+/*
 #settings {
     display: none;
     position: fixed;
@@ -75,7 +77,7 @@ a h2:hover, h2 a:hover {
     margin: 100px auto 0 auto;
     vertical-align: baseline;
 }
-
+*/
 #settings-open {
     display: none;
 }

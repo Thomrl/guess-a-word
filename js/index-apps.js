@@ -9,8 +9,11 @@ wrong = 0;
 checkTheWord = "";
 var foundLetters = [];
 var userInput = " ";
+//Categories
 var words = ["keyboard", "bell", "bike", "plane", "shirt", "pants", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "videochat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "car", "telephone", "tank", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "tire", "play", "spy", "glue", "man", "woman", "human", "boy", "girl", "baby", "adult", "kid", "child", "stereo", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
 var wordsColors = ["blue", "red", "yellow", "pink", "black", "white", "green", "purple", "brown", "grey"];
+var wordsAnimals = ["dog", "cat", "lion", "tiger", "wolf", "bird", "mouse", "cow", "sheep", "pig", "snake", "deer", "frog", "fish", "monkey", "fox", "panda", "bear", "elephant"];
+
 toggleHM = localStorage.getItem('toggleHM');
 var gamePlaying = true;
 
@@ -22,7 +25,7 @@ var init = function() {
     document.getElementById("wrongind").textContent = wrong;
     document.getElementById("wrong-letters").textContent = displayedWrongLetters;
     document.getElementById("hmimg").src = "img/1-hangman.jpg";
-    document.querySelector(".maps").style.display = "none";
+    document.querySelector("#after-game").style.display = "none";
     theWord = words[Math.floor(Math.random() * words.length)];
     for (i=0; i < theWord.length; i++) {
         aTheWord.push(theWord[i]);
@@ -64,7 +67,7 @@ function showResultAsLines() {
     showedResult = aSResult;
     showedResult = showedResult.join(" ");
     showedResult = showedResult.toUpperCase();
-    showedResult.replace(/,/g, " ");
+    showedResult.replace(/,/g, " "); //Replaces all commas with space
 }
 
 console.log(showedResult);
@@ -105,6 +108,25 @@ document.getElementById("toggle-hangman").addEventListener("click", function() {
 })
 
 //Hangman section end..
+
+
+
+//Settings section Start.
+/*
+document.getElementById("button-settings").addEventListener("click", function() {
+    document.querySelector("#settings").style.display = "block";
+})*/
+
+
+
+
+
+
+
+
+
+//Settings section end..
+
 
 function newGame(){
     var theWord;
@@ -170,7 +192,7 @@ function check() {
             if (wrong === maxWrong) {
                 //alert("Game Over!\nReload page the play again!");
                 document.getElementById("win-lose-text").textContent = "Game Over!"
-                document.querySelector(".maps").style.display = "block";
+                document.querySelector("#after-game").style.display = "block";
                 gamePlaying = false;
             };
             
@@ -180,7 +202,7 @@ function check() {
             if (checkThis === theWord) {
                 //alert("Congratiulations, you won!\nReload page to play again!");
                 document.getElementById("win-lose-text").textContent = "Congratiulations! You Won!"
-                document.querySelector(".maps").style.display = "block";
+                document.querySelector("#after-game").style.display = "block";
                 //document.getElementById("hmimg").style.display = "none";
                 gamePlaying = false;
             }
