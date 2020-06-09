@@ -10,10 +10,11 @@ checkTheWord = "";
 var foundLetters = [];
 var userInput = " ";
 //Categories
-var words = ["keyboard", "bell", "bike", "plane", "shirt", "pants", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "videochat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "car", "telephone", "tank", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "tire", "play", "spy", "glue", "man", "woman", "human", "boy", "girl", "baby", "adult", "kid", "child", "stereo", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
+var words = ["monk", "keyboard", "bell", "bike", "plane", "shirt", "pants", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "videochat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "car", "telephone", "tank", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "tire", "play", "spy", "glue", "man", "woman", "human", "boy", "girl", "baby", "adult", "kid", "child", "stereo", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
 var wordsNormal = ["keyboard", "bell", "bike", "plane", "shirt", "pants", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "videochat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "car", "telephone", "tank", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "tire", "play", "spy", "glue", "man", "woman", "human", "boy", "girl", "baby", "adult", "kid", "child", "stereo", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
 var wordsColors = ["blue", "red", "yellow", "pink", "black", "white", "green", "purple", "brown", "grey"];
-var wordsAnimals = ["dog", "cat", "lion", "tiger", "wolf", "bird", "mouse", "cow", "sheep", "pig", "snake", "deer", "frog", "fish", "monkey", "fox", "panda", "bear", "elephant"];
+var wordsAnimals = ["rat", "swan", "dog", "cat", "lion", "tiger", "wolf", "bird", "mouse", "cow", "sheep", "pig", "snake", "deer", "frog", "fish", "monkey", "fox", "panda", "bear", "elephant"];
+var wordsVideoGames = ["overwatch", "world of warcraft", "diablo", "counter strike", "call of duty", "minecraft", "fortnite", "dark souls", "dead cells", "undertale", "rocket league", "league of legends", "beat saber", "fallout", "assassins creed", "far cry"];
 
 toggleHM = localStorage.getItem('toggleHM');
 var gamePlaying = true;
@@ -158,6 +159,11 @@ document.getElementById("cat-colors").addEventListener("click", function() {
     newGame();
 })
 
+document.getElementById("cat-video-games").addEventListener("click", function() {
+    words = wordsVideoGames;
+    newGame();
+})
+
 
 
 
@@ -277,6 +283,8 @@ function check() {
 //categories
 
 //other theme //Made a new them
+
+//Hide rules from settings
 
 //Change theme?
 
