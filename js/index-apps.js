@@ -11,6 +11,7 @@ var foundLetters = [];
 var userInput = " ";
 //Categories
 var words = ["keyboard", "bell", "bike", "plane", "shirt", "pants", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "videochat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "car", "telephone", "tank", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "tire", "play", "spy", "glue", "man", "woman", "human", "boy", "girl", "baby", "adult", "kid", "child", "stereo", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
+var wordsNormal = ["keyboard", "bell", "bike", "plane", "shirt", "pants", "space", "universe", "grass", "flower", "nuts", "hero", "wheel", "zoom", "camera", "video", "chat", "videochat", "super", "water", "fire", "wind", "earth", "mars", "pluto", "venus", "moon", "sun", "power", "paper", "pen", "awesome", "dice", "ball", "computer", "phone", "car", "telephone", "tank", "bank", "orange", "blue", "green", "yellow", "black", "cool", "happy", "sweet", "monkey", "dog", "cat", "mouse", "rat", "zoo", "tire", "play", "spy", "glue", "man", "woman", "human", "boy", "girl", "baby", "adult", "kid", "child", "stereo", "drum", "guitar", "code", "christmas", "winter", "summer", "easter", "spring"];    
 var wordsColors = ["blue", "red", "yellow", "pink", "black", "white", "green", "purple", "brown", "grey"];
 var wordsAnimals = ["dog", "cat", "lion", "tiger", "wolf", "bird", "mouse", "cow", "sheep", "pig", "snake", "deer", "frog", "fish", "monkey", "fox", "panda", "bear", "elephant"];
 
@@ -112,20 +113,60 @@ document.getElementById("toggle-hangman").addEventListener("click", function() {
 
 
 //Settings section Start.
-/*
-document.getElementById("button-settings").addEventListener("click", function() {
-    document.querySelector("#settings").style.display = "block";
-})*/
+//Close settings on the X button.
+document.getElementById("button-close-settings").addEventListener("click", function() {
+    document.querySelector("#settings").style.display = "none";
+})
 
 
+//show popup when clicking the trigger
+$('#button-settings').on('click touch', function(){
+	$('#settings').show();
+  });     
 
 
-
-
-
+//hide it when clicking anywhere else except the popup and the trigger
+$(document).on('click touch', function(event) {
+	if (!$(event.target).parents().addBack().is('#button-settings')) {
+	  $('#settings').hide();
+	  mapsToggle = 0;
+	}
+  });
+   
+  // Stop propagation to prevent hiding "#" when clicking on it
+  $('#settings').on('click touch', function(event) {
+	event.stopPropagation();
+  });
 
 
 //Settings section end..
+
+//Categories start
+
+document.getElementById("cat-normal").addEventListener("click", function() {
+    words = wordsNormal;
+    newGame();
+})
+
+document.getElementById("cat-animals").addEventListener("click", function() {
+    words = wordsAnimals;
+    newGame();
+})
+
+document.getElementById("cat-colors").addEventListener("click", function() {
+    words = wordsColors;
+    newGame();
+})
+
+
+
+
+
+
+
+
+
+
 
 
 function newGame(){
@@ -205,6 +246,7 @@ function check() {
                 document.querySelector("#after-game").style.display = "block";
                 //document.getElementById("hmimg").style.display = "none";
                 gamePlaying = false;
+                
             }
             
             
@@ -218,6 +260,14 @@ function check() {
 
 //////////////////////////
 
+// Currently Working on:
+
+//1) Settings window.
+
+//2) Categories. This works.
+
+
+
 //Planned
 
 //alternative to alerts //Done
@@ -229,6 +279,8 @@ function check() {
 //other theme //Made a new them
 
 //Change theme?
+
+//Gamemodes. Campaign, freemode.
 
 //////////////////////////
 

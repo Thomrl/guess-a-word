@@ -78,6 +78,28 @@ a h2:hover, h2 a:hover {
     vertical-align: baseline;
 }
 */
+
+#settings {
+    display: none;
+}
+
+#settings li {
+    display: inline-block;
+    margin: 1px;
+    padding: 1px;
+}
+
+#settings ul {
+    padding: 0;
+    margin-top: -10px;
+}
+
+#settings button {
+    background-color: black;
+    color: white;
+
+}
+
 #settings-open {
     display: none;
 }
